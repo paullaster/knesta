@@ -1,0 +1,19 @@
+@use '../utils' as u;
+
+html{
+    font-size: 100%;
+}
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit !important;
+}
+div.errorBoundary {
+    height: 100vh;
+    @include u.custom_flex_display(column, center, center)
+}

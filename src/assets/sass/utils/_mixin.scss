@@ -1,0 +1,16 @@
+@mixin custom_flex_display($direction, $justification: null, $aligment: null) {
+    display: flex !important;
+    flex-direction: $direction !important;
+    justify-content: $justification !important;
+    align-items: $aligment !important;
+}
+
+@mixin grid($layout, $direction: null) {
+    display: grid;
+    
+    @if $direction == 'row' {
+      grid-template-rows: $layout;
+    } @else {
+      grid-template-columns: $layout;
+    }
+  }

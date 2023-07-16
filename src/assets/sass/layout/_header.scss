@@ -1,0 +1,13 @@
+@use '../utils/' as u;
+
+header {
+    background-color: #1f2a48;
+    height: 100vh;
+
+    .nav {
+        @include u.grid(4fr 8fr, column);
+        ul {
+            background-color: red;
+        }
+    }
+}
