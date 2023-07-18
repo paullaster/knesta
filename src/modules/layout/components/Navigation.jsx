@@ -1,11 +1,18 @@
-// import { useState } from "react";
+import { useReducer } from "react";
 import Logo from "./Logo";
 import { NavLink, } from "react-router-dom";
-import { MdDensityMedium } from "react-icons/md";
+import { MdDensityMedium, MdClear } from "react-icons/md";
+import StateReducer from "../store/StateReducer";
 
 const Navigation = () => {
 
-    // const [activeId, setActiveId] = useState("");
+    const [state, dispatcher] = useReducer(
+        StateReducer,
+        {
+            toggleMenuOnMobileView: false,
+        }
+    );
+
 
     const handleScroll = (id) => {
         const section = document.getElementById(id);
@@ -15,13 +22,25 @@ const Navigation = () => {
         }
     };
 
+    const handleTogglingMobileView = () => {
+        dispatcher({
+        type: "SHOW_MENU_ON_MOBILE_VIEW",
+        });
+    };
 
     return (
         <nav className="nav">
             <div>
                 <Logo />
             </div>
-            <ul>
+            <div className="toggle-menu-for-mobile" onClick={handleTogglingMobileView}>
+                { state.toggleMenuOnMobileView ? <MdClear size={25} /> : <MdDensityMedium size={25}/>}
+            </div>
+            <ul 
+            className={
+                state.toggleMenuOnMobileView ? "show-menu" : ""
+            }
+            >
                 <li>
                     <a href={"/#"}>
                         knesta
@@ -44,9 +63,6 @@ const Navigation = () => {
                     </NavLink>
                 </li>
             </ul>
-            <div>
-                <MdDensityMedium />
-            </div>
         </nav>
     )
 }

@@ -1,0 +1,17 @@
+@use '../utils/' as u;
+
+/* COLOR*/
+$primary: #1f2a48;
+$secondary: #ffffff;  
+
+
+
+/*PADDING*/
+$padding-wide: u.rem(60);
+$padding-large: u.rem(40);
+$padding-medium: u.rem(20);
+$padding-normal: u.rem(16);
+$padding-regular: u.rem(10);
+$padding-small: u.rem(8);
+$padding-xsmall: u.rem(4);
+$padding-tiny: u.rem(2);

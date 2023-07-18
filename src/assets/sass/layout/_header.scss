@@ -1,13 +1,34 @@
 @use '../utils/' as u;
-
+@use '../global/' as g;
 header {
-    background-color: #1f2a48;
+    background-color: g.$primary;
     height: 100vh;
 
     .nav {
+        position: relative;
+        padding-top: u.rem(16);
         @include u.grid(4fr 8fr, column);
+        color: g.$secondary;
+        .show-menu {
+            display: block !important;
+        }
         ul {
-            background-color: red;
+            display: none !important;
+            width: 100% !important;
+            position: absolute;
+            top: u.rem(40);
+            padding: u.rem(16) u.rem(4);
+            li{
+                border-top: u.rem(.1) solid rgba(128, 128, 128, .4);
+                padding: g.$padding-small 0;
+                &:last-child{
+                    border-bottom: u.rem(.1) solid rgba(128, 128, 128, .4);
+                }
+            }
+        }
+        .toggle-menu-for-mobile{
+            @include u.custom_flex_display(row, right);
+            padding-right: u.rem(16);
         }
     }
 }
