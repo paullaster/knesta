@@ -1,19 +1,38 @@
 @use '../utils' as u;
+@use './variable' as v;
 
-html{
+html {
     font-size: 100%;
 }
-*, *::before, *::after {
+
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Mono', monospace;
 }
+
 body {
     margin: 0;
     padding: 0;
     box-sizing: inherit !important;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Mono', monospace;
 }
+
 div.errorBoundary {
     height: 100vh;
     @include u.custom_flex_display(column, center, center)
 }
+
+div.section-heading {
+    padding: v.$padding-medium v.$padding-medium v.$padding-medium;
+    text-align: center;
+    @include u.breakpoint-up(medium) {
+        padding: v.$padding-medium v.$padding-medium v.$padding-wide;
+    }
+}
+

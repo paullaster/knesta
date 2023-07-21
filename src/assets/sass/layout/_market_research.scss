@@ -1,0 +1,173 @@
+@use '../global/' as g;
+@use '../utils/' as u;
+
+.marketresearch {
+    padding: g.$padding-wide g.$padding-medium;
+
+    // .section-heading {
+    //     h1 {
+    //         text-decoration: underline;
+
+    //         @supports (text-decoration-skip-last: 6) {
+    //             text-decoration-skip-last: 6;
+    //         }
+    //     }
+    // }
+
+    div.market-research {
+        padding-bottom: u.rem(200);
+
+        div.specific {
+            box-shadow: u.rem(8) u.rem(16) u.rem(16) u.rem(32) rgba(0, 0, 0, 0.09);
+            margin-top: u.rem(200);
+            border-radius: u.rem(16);
+            padding: g.$padding-medium;
+            position: relative;
+            @include u.custom_flex_display(row);
+
+            &:first-child {
+                margin-top: u.rem(30);
+            }
+
+            .text-holder {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1000;
+                background: #fff;
+                height: 30vh;
+                width: 100%;
+                padding-left: g.$padding-small;
+                padding-top: g.$padding-small;
+                border-radius: u.rem(16);
+
+                & * {
+                    display: block;
+                }
+
+                @include u.custom_flex_display(column, top, none);
+
+                span {
+                    font-size: g.$font-medium !important;
+                    color: #1f2a48;
+                    width: 100%;
+                    border-left: u.rem(2) solid #fff;
+                    padding-left: u.rem(4);
+                }
+
+            }
+
+            .image-holder {
+                z-index: 1001;
+                height: 100%;
+                width: 100%;
+
+                & * {
+                    display: block;
+                }
+
+                position: relative;
+                @include u.custom_flex_display(column, none, right);
+
+                img {
+                    position: absolute;
+                    right: 2%;
+                    // top: 10%;
+                    // box-shadow: u.rem(4) u.rem(8) u.rem(8) u.rem(16) rgba(0, 0, 0, 0.02);
+                    border-radius: u.rem(16);
+                    width: 70%;
+                    // margin-top: u.rem();
+
+                    /* Apply 3D tilt effect */
+                    transform: perspective(800px) rotateX(20deg) rotateY(10deg);
+                    transition: transform 0.3s ease;
+
+                    &:hover {
+                        transform: perspective(800px) rotateX(0deg) rotateY(0deg);
+                    }
+                }
+            }
+        }
+    }
+
+    @include u.breakpoint-up(medium) {
+        div.market-research {
+            padding-bottom: u.rem(40);
+
+            div.specific {
+                box-shadow: u.rem(2) u.rem(4) u.rem(4) u.rem(8) rgba(0, 0, 0, 0.04);
+                margin-top: u.rem(10);
+                margin-bottom: u.rem(10);
+                padding: g.$padding-medium;
+                padding-bottom: u.rem(350);
+                @include u.custom_flex_display(row);
+
+                &:first-child {
+                    margin-top: u.rem(30);
+                }
+
+                .text-holder {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1000;
+                    height: 30vh;
+                    width: 100%;
+                    padding-left: g.$padding-small;
+                    padding-top: g.$padding-small;
+                    border-radius: u.rem(16);
+
+                    & * {
+                        display: block;
+                    }
+
+                    @include u.custom_flex_display(column, center, none);
+
+                    span {
+                        font-size: g.$font-large !important;
+                        width: 50%;
+                    }
+
+                }
+
+                .image-holder {
+                    z-index: 1001;
+                    height: 100%;
+                    width: 100%;
+
+                    img {
+                        right: 0%;
+                        width: 50%;
+                        margin-top: u.rem(-5);
+                    }
+                }
+            }
+        }
+    }
+
+    @include u.breakpoint-up(large) {
+        div.market-research {
+            @include u.grid(4fr 4fr 4fr);
+            column-gap: u.rem(16);
+
+            div.specific {
+                // width: 90%;
+                // margin-top: u.rem(40);
+                // padding: g.$padding-medium;
+
+                // span {
+                //     font-size: g.$font-large;
+                //     display: block;
+                //     background-color: rgba(231, 235, 235, 0.894);
+                //     position: absolute;
+                //     top: 70%;
+                //     right: 4%;
+                //     width: 70%;
+                //     padding: g.$padding-normal;
+                //     box-shadow: u.rem(8) u.rem(16) u.rem(16) u.rem(32) rgba(0, 0, 0, 0.03);
+                //     border-radius: u.rem(16);
+                // }
+            }
+        }
+    }
+}

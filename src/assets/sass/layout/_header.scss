@@ -1,34 +1,184 @@
 @use '../utils/' as u;
 @use '../global/' as g;
+
 header {
-    background-color: g.$primary;
+    position: relative;
+    // background-image: linear-gradient(to bottom, rgba(36, 70, 165, 0.7), rgba(151, 26, 255, .7)), url('');
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh;
 
     .nav {
         position: relative;
         padding-top: u.rem(16);
+        padding-left: g.$padding-normal;
         @include u.grid(4fr 8fr, column);
         color: g.$secondary;
+
         .show-menu {
             display: block !important;
         }
+
         ul {
+            z-index: 1002;
             display: none !important;
             width: 100% !important;
             position: absolute;
             top: u.rem(40);
             padding: u.rem(16) u.rem(4);
-            li{
+
+            li {
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.116) !important;
+                }
+
                 border-top: u.rem(.1) solid rgba(128, 128, 128, .4);
-                padding: g.$padding-small 0;
-                &:last-child{
+                padding: g.$padding-small 0 g.$padding-small g.$padding-normal;
+
+                &:last-child {
                     border-bottom: u.rem(.1) solid rgba(128, 128, 128, .4);
+                }
+
+                &::first-letter {
+                    text-transform: uppercase;
                 }
             }
         }
-        .toggle-menu-for-mobile{
+
+        .toggle-menu-for-mobile {
             @include u.custom_flex_display(row, right);
             padding-right: u.rem(16);
+        }
+    }
+
+    .header-introduction {
+        position: relative;
+        width: 100%;
+        padding: g.$padding-large;
+        text-align: center;
+        @include u.custom_flex_display(column center, center);
+
+        h1 {
+            position: absolute;
+            top: u.rem(325);
+            color: g.$secondary;
+            font-weight: 900;
+            font-size: g.$font-medium !important;
+            @include u.custom_flex_display(row, center, center);
+
+            & * {
+                display: block;
+            }
+
+            svg {
+                &:first-child {
+                    transform: rotateY(180deg);
+                }
+            }
+
+            .superscript {
+                position: relative;
+                top: u.rem(-16);
+                font-size: 80%;
+            }
+        }
+
+        .services {
+            background: rgba(1, 16, 55, 0.094);
+            position: absolute;
+            top: u.rem(200);
+            color: #fff;
+            width: 85% !important;
+            padding: g.$padding-medium;
+            border-radius: u.rem(16);
+            box-shadow: u.rem(1) u.rem(1) u.rem(2) u.rem(4) rgba(0, 0, 0, 0.092);
+
+            div {
+                h4 {
+                    border-left: u.rem(2) solid #fff;
+                    font-weight: 600;
+                    margin: u.rem(4) 0;
+                    padding-left: g.$padding-small;
+                    font-size: g.$font-medium;
+                    text-align: left;
+                }
+                p {
+                    text-align: left;
+                    margin-bottom: u.rem(16);
+                }
+                a {
+                    background-color: #1f2a482b;
+                    padding: g.$padding-small;
+                    display: block;
+                    border-radius: u.rem(16);
+                }
+            }
+        }
+    }
+
+    @include u.breakpoint-up(medium) {
+        .nav {
+            ul {
+                display: block !important;
+                position: relative !important;
+                top: 0;
+                padding: 0 0 0 0 !important;
+                @include u.custom_flex_display(row);
+
+                li {
+                    border-top: none !important;
+
+                    &:last-child {
+                        border-bottom: none !important;
+                    }
+
+                    &::first-letter {
+                        text-transform: uppercase;
+                    }
+                }
+            }
+
+            .toggle-menu-for-mobile {
+                display: none !important;
+            }
+        }
+
+        .header-introduction {
+            h1 {
+                font-size: g.$font-xlarge !important;
+            }
+        }
+    }
+
+    @include u.breakpoint-up(large) {
+        .nav {
+            ul {
+                @include u.custom_flex_display(row);
+
+                li {
+                    font-size: g.$font-large;
+                    padding-left: g.$padding-large;
+                    border-top: none !important;
+
+                    &:last-child {
+                        border-bottom: none !important;
+                    }
+
+                    &::first-letter {
+                        text-transform: uppercase;
+                    }
+                }
+            }
+
+            .toggle-menu-for-mobile {
+                display: none !important;
+            }
+        }
+
+        .header-introduction {
+            h1 {
+                font-size: g.$font-2xlarge !important;
+            }
         }
     }
 }

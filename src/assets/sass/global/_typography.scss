@@ -1,0 +1,16 @@
+@use '../utils/' as u;
+@use './variable' as v;
+
+h1 {
+    font-size: v.$font-large !important;
+    @include u.breakpoint-up(medium) {
+        font-size: v.$font-xlarge !important;
+    }
+}
+a,
+a:visited,
+a:link,
+a:hover {
+    text-decoration: none;
+    background-color: none;;
+}

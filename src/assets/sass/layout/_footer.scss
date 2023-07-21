@@ -1,0 +1,12 @@
+@use '../global/' as g;
+
+footer {
+    background-color: #1f2a48;
+    padding: g.$padding-large g.$padding-small;
+    color: #fff;
+
+    .copyright {
+        font-size: g.$font-normal;
+        font-weight: 200;
+    }
+}

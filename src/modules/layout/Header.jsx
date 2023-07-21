@@ -1,10 +1,14 @@
-import Navigation from "./components/Navigation"
 
+import Navigation from "./components/Navigation"
+import HeaderIntroduction from "./components/HeaderIntroduction"
 
 const Header = () => {
+  
+
   return (
-    <header>
+    <header id="header">
         <Navigation />
+        <HeaderIntroduction />
     </header>
   )
 }

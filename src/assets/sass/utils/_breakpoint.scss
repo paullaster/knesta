@@ -1,0 +1,44 @@
+@use './functions' as f;
+
+/*RESPONSIVE VIEW*/
+
+/*
+for min-width:
+700px - 43.75em => medium screen
+900px-  56.25em => large screen
+1440px - 90em => xlarge screen
+*/
+/*min-width map:*/
+$breakpoints-up: (
+    'medium': f.em(730),
+    'large': f.em(899),
+    'xlarge': f.em(1439)
+);
+
+/*
+for max-width:
+699px - 43.6875em => small screen
+899px - 56.1875em => medium screen
+1439px - 89.9375em => large screen
+*/
+
+/*max-width map:*/
+$breakpoints-down: (
+    'small': f.em(589),
+    "medium": f.em(899),
+    "large": f.em(1439)
+);
+
+/*min-width mixin*/
+@mixin breakpoint-up($size){
+    @media (min-width: map-get($breakpoints-up, $size)){
+        @content;
+    }
+}
+
+/*max-width mixin*/
+@mixin breakpoint-down($size){
+    @media (max-width: map-get($breakpoints-down, $size)){
+        @content;
+    }
+}

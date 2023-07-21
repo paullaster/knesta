@@ -1,0 +1,12 @@
+@use '../global/' as g;
+@use '../utils/' as u;
+
+.logo {
+    font-weight: 900;
+    text-shadow: u.rem(8) u.rem(8) u.rem(16) rgba(0, 0, 0, 0.072);
+    letter-spacing: u.rem(8);
+    font-family: 'Ubuntu Condensed', sans-serif;
+    h1 {
+        font-size: g.$font-large !important;
+    }
+}

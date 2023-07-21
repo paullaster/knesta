@@ -7,8 +7,8 @@ const Main = () => {
   return (
     <main>
       <MarketResearch />
-      <RiskAnalysis />
-      <Blog />
+      {/* <RiskAnalysis /> */}
+      {/* <Blog /> */}
     </main>
   )
 }
